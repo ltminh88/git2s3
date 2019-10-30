@@ -1,0 +1,31 @@
+# Do not change version. This is the version of aws buildspec, not the version of your buldspec file.
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 8 
+    commands:
+      - echo install serverless
+      - npm install -g mocha
+      - npm install --silent --no-progress -g npm
+      - npm install --silent --no-progress -g serverless
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install --silent --no-progress
+      - npm install unit.js
+  build:
+    commands:
+      - mocha test.js
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - sls config credentials --provider aws --key $KEY --secret $SECRET
+      - sls deploy
+      - echo Build Done
+
+artifacts:
+  files:
+    - api/*
+    - serverless.yml

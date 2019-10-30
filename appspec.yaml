@@ -1,0 +1,9 @@
+version: 0.0
+Resources:
+  - myLambdaFunction:
+      Type: AWS::Lambda::Function
+      Properties:
+        Name: "candidate-service-dev-candidateSubmission"
+        Alias: "candidate-dev"
+        CurrentVersion: "9"
+        TargetVersion: "12"
