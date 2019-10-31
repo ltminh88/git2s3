@@ -1,1 +1,1 @@
-hom nay co luong
+hom nay co luong roi
