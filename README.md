@@ -1,1 +1,1 @@
-hom nay co luong roi
+hom nay co luong roi nhi ?
